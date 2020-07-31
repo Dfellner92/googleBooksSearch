@@ -6,10 +6,13 @@ import API from "../utils/API";
 
 function Detail(props) {
   const [book, setBook] = useState({})
+  const [searchTerm, setSearchTerm] = useState("")
+
 
   // When this component mounts, grab the book with the _id of props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   const {id} = useParams()
+  console.log(id);
   useEffect(() => {
     API.getBook(id)
       .then(res => setBook(res.data))

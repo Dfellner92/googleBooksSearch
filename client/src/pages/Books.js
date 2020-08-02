@@ -52,11 +52,13 @@ function Books() {
   };
   
   function handleSave(book) {
-    console.log(book.volumeInfo.title);
     API.saveBook({
-      title: book.volumeInfo.title
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.thumbnail,
+      link: book.volumeInfo.infoLink
     })
-    .then(() => loadBooks(book._id))
     .catch(err => console.log(err))
   };
 
@@ -92,20 +94,31 @@ function Books() {
                 {books.map(book => (
                   <ListItem key={book._id}>
                     <div>
+                      <Row>
+                        <Col size="md-8"> 
                       <h3>{book.volumeInfo.title}</h3>
+                      </Col>
+                      <Col size="md-2">
+                      <button className="button view" onClick={() => window.location.href=book.volumeInfo.infoLink}>view</button>
+                      </Col>
+                      <Col size="md-2">
+                      <button className="button save" onClick={() => handleSave(book)} key={book.id}>save</button>
+                      </Col>
+                      </Row>
+                      <Row>
                       {book.volumeInfo.authors.map(author => (
                         <h6>{author}</h6>
                       ))}
-                      <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title}></img>
-                      <button onClick={() => handleSave(book)} key={book.id}>
-                        <Link to={"/books/"}>
-                      <strong>
-                        save book 
-                      </strong>
-                    </Link>
-                    </button>
-                    </div>
-                    <DeleteBtn onClick={() => deleteBook(book._id)} />
+                      </Row>
+                      <Row>
+                        <Col size="md-3">
+                        <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
+                        </Col>
+                        <Col size="md-9">
+                        <div className="description">{book.volumeInfo.description}</div>
+                        </Col>
+                      </Row>
+                                         </div>
                   </ListItem>
                 ))}
               </List>

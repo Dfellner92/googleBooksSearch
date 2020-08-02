@@ -11,6 +11,7 @@
 }
 
 .list-overflow-container li {
+  float: right;
   border-radius: 0px;
   border-left: none;
   border-right: none;
@@ -31,3 +32,19 @@
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
+
+.list-overflow-container > .description {
+  position: relative;
+  display: left;
+}
+
+.button {
+  float: right
+}
+
+.container > img {
+  position: relative;
+  display: left;
+}
+
+

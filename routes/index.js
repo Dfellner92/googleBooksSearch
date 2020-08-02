@@ -1,5 +1,5 @@
 const path = require("path");
-const router = require("./api/node_modules/express").Router();
+const router = require("express").Router();
 const apiRoutes = require("./api");
 
 // API Routes

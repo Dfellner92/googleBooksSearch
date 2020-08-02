@@ -11,7 +11,7 @@ function Nav() {
             <a className="nav-link" href={["/"]}>Search</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/books/:id">Saved</a>
+            <a className="nav-link" href="/books">Saved</a>
           </li>
         </ul>
       

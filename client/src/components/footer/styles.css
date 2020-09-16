@@ -1,0 +1,14 @@
+.footer {
+  background-color: #EB6864;
+  color: #dddddd;
+  border-top: 8px solid #22B24C;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+
+.copyright {
+  position: relative;
+  top: 15px;
+}
